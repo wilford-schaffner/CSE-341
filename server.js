@@ -1,9 +1,16 @@
 var express = require('express');
 var app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 8080;
+const host = ('localhost')
+const mongoDB = require('./db/mongoDB')
 
 app.use('/', require('./routes'));
 
-app.listen(3000, () => {
-  console.log('Server is running on port ${port}');
+mongoDB.initDb((err, mongoDB) => {
+  if (err) {
+    console.log(err);
+  } else {
+    app.listen(port);
+    console.log(`Server is running on http://${host}:${port}`);
+  }
 });
