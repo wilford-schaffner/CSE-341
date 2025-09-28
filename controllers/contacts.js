@@ -6,7 +6,6 @@ const getAll = async (req, res, next) => {
     response.toArray().then((contacts) => {
         res.setHeader('Content-Type', 'application/json');
         res.status(200).json(contacts);
-        res.json(contacts);
     });
 }
 
