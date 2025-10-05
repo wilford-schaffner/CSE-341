@@ -4,6 +4,8 @@ const port = process.env.PORT || 8080;
 const host = ('localhost')
 const mongoDB = require('./db/mongoDB')
 
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 app.use('/', require('./routes'));
 
 mongoDB.initDb((err, mongoDB) => {
