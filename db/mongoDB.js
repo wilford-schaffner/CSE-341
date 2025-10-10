@@ -1,5 +1,5 @@
 const connection = require("dotenv");
-connection.config();
+connection.config({ quiet: true });
 const MongoClient = require('mongodb').MongoClient;
  
 let _db;
