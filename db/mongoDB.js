@@ -10,17 +10,7 @@ const initDb = (callback) => {
     return callback(null, _db);
   }
 
-MongoClient.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    ssl: true,
-    sslValidate: true,
-    tlsAllowInvalidCertificates: false,
-    tlsAllowInvalidHostnames: false,
-    serverSelectionTimeoutMS: 5000,
-    connectTimeoutMS: 10000,
-    socketTimeoutMS: 45000,
-})
+MongoClient.connect(process.env.MONGODB_URI)
 .then((client) => {
     _db = client;
     callback(null, _db);
