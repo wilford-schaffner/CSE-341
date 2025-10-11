@@ -1,4 +1,6 @@
 const swaggerAutogen = require('swagger-autogen')();
+const connection = require("dotenv");
+connection.config({ quiet: true });
 
 const doc = {
   info: {
